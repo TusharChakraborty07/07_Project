@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const express = require("express");
+const cors = require("cors");
 
 const userModel = require("./models/user.model");
 const todoModel = require("./models/todo.model");
@@ -8,6 +9,7 @@ const todoModel = require("./models/todo.model");
 const app = express();
 const port = process.env.PORT;
 
+app.use(cors());
 app.use(express.json());
 
 app.get("/todo", async (req, res) => {
