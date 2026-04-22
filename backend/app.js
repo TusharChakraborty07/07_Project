@@ -1,9 +1,12 @@
+require("dotenv").config();
+
 const express = require("express");
 
 const userModel = require("./models/user.model");
 const todoModel = require("./models/todo.model");
 
 const app = express();
+const port = process.env.PORT;
 
 app.use(express.json());
 
@@ -41,6 +44,6 @@ app.delete("/todo/delete/:id", async (req, res) => {
   res.send("Todo deleted sucessfully");
 });
 
-app.listen(3000, () => {
-  console.log("Server is running...");
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
